@@ -8,6 +8,7 @@ class TitleScene :
 public:
 	TitleScene();
 	~TitleScene();
+	void Initialize(void);
 	void Update(Button button);
 	void TransltionScene(void);
 	void Draw(void);

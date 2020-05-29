@@ -24,7 +24,7 @@ void ImageMng::Destroy(void)
 const VEC_INT & ImageMng::GetID(std::string f_name)
 {
 
-	if (imgMap.find(f_name) == imgMap.end())					//f_nameの画像ハンドルがあるか    find（見つける）
+     	if (imgMap.find(f_name) == imgMap.end())					//f_nameの画像ハンドルがあるか    find（見つける）
 	{
 		imgMap[f_name].resize(1);
 		imgMap[f_name][0] = LoadGraph(f_name.c_str());

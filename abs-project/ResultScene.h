@@ -9,8 +9,13 @@ public:
 	ResultScene();
 	~ResultScene();
 	void Update(Button button);
-	void TransltionScene(void);
+	void TransltionScene(Scene scene);
 	void Draw(void);
 	Scene GetScene(void) { return scene; };
+	void ConversionTitle(void);
+	void ConversionGame(void);
+private:
+	bool transitionFlag_Title;
+	bool transitionFlag_Game;
 };
 
