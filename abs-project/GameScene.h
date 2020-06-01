@@ -1,7 +1,9 @@
 #pragma once
+#include "memory"
 #include "BaseScene.h"
 #include "GameTask.h"
 #include "Sprite.h"
+#include "Timer.h"
 
 #define BC_SHEETS_NUMBER 2
 
@@ -18,6 +20,6 @@ public:
 	Scene GetScene(void) { return scene; };
 private:
 	Sprite bcGround[BC_SHEETS_NUMBER];
-
+	std::unique_ptr<Timer> timer;
 };
 

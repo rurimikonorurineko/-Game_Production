@@ -5,8 +5,8 @@
 #include "ImageMng.h"
 
 
-#define SCREEN_SIZE_X 1320				// 画面の横サイズ
-#define SCREEN_SIZE_Y 600				// 画面の縦サイズ
+#define SCREEN_SIZE_X 1316				// 画面の横サイズ
+#define SCREEN_SIZE_Y 593				// 画面の縦サイズ
 
 GameTask *GameTask::s_Instance = nullptr;
 

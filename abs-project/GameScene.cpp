@@ -1,6 +1,7 @@
 #include "DxLib.h"
 #include "GameScene.h"
 #include "ImageMng.h"
+#include "Timer.h"
 
 #define SCROLL_ROTATIONS_NUMBER 2
 
@@ -32,10 +33,12 @@ void GameScene::Initialize(void)
 			bcGround[i].pos.x += bcGround[i].W;
 		}
 	}
+	timer = std::make_unique<Timer>();
 }
 
 void GameScene::Update(Button button)
 {
+	timer->Update();
 	scene = Scene::None;
 	if (button.nowButton.Space == true && button.oldButton.Space == false)
 	{
@@ -46,7 +49,7 @@ void GameScene::Update(Button button)
 		bcGround[i].pos.x -= SCROLL_ROTATIONS_NUMBER;
 		if (bcGround[i].pos.x <= -bcGround[i].W)
 		{
-			bcGround[i].pos.x = bcGround[i].W;
+			bcGround[i].pos.x = bcGround[i].W - 1;
 		}
 	}
 }
@@ -62,4 +65,5 @@ void GameScene::Draw(void)
 	{
 		DrawGraph(bcGround[i].pos.x, bcGround[i].pos.y, bcGround[i].Graph, false);
 	}
+	timer->DrawTimer();
 }
