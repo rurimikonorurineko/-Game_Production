@@ -15,7 +15,7 @@ void TitleScene::Initialize(void)
 {
 }
 
-void TitleScene::Update(Button button)
+void TitleScene::Update(Button button, VECTOR screen)
 {
 	scene = Scene::None;
 	if (button.nowButton.Space == true && button.oldButton.Space == false)

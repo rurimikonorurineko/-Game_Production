@@ -33,6 +33,7 @@ public:
 	void Initialize(void);
 	void Run(void);
 	int Update(void);
+	//VECTOR GetScreen(void);
 private:
 	GameTask();
 	~GameTask();
@@ -53,7 +54,7 @@ private:
 	std::unique_ptr<GameScene> game;
 	std::unique_ptr<ResultScene> result;
 
-
+	VECTOR screen;
 	static GameTask *s_Instance;
 };
 

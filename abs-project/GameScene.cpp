@@ -34,11 +34,14 @@ void GameScene::Initialize(void)
 		}
 	}
 	timer = std::make_unique<Timer>();
+	player = std::make_unique<Player>();
 }
 
-void GameScene::Update(Button button)
+void GameScene::Update(Button button, VECTOR screen)
 {
+	this->screen = screen;
 	timer->Update();
+	player->Update(button, screen);
 	scene = Scene::None;
 	if (button.nowButton.Space == true && button.oldButton.Space == false)
 	{
@@ -65,5 +68,7 @@ void GameScene::Draw(void)
 	{
 		DrawGraph(bcGround[i].pos.x, bcGround[i].pos.y, bcGround[i].Graph, false);
 	}
+	DrawBox(0, screen.y - screen.y / 4, screen.x, screen.y,GetColor(224,216,203),true);
 	timer->DrawTimer();
+	player->Draw();
 }

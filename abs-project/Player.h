@@ -1,13 +1,16 @@
 #pragma once
 #include <string>
 #include "DxLib.h"
+#include "GameTask.h"
+#include "Sprite.h"
 
 class Player
 {
 public:
 	Player();
 	~Player();
-	void Update(void);
+	void Initialize(void);
+	void Update(Button button, VECTOR screen);
 	void Draw(void);
 	int Jump(void);
 	//椅子の高さ調整
@@ -18,6 +21,12 @@ public:
 	int BescaredBossAttack(void);
 	//アイテムを取得
 	int PickupItem(void);
-
+private:
+	//プレイヤーのスプライト
+	Sprite player;
+	//ジャンプフラウグ
+	jumpFlag;
+	//スクリーンのサイズ格納
+	VECTOR screen;
 };
 

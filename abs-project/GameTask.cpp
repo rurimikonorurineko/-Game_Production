@@ -58,6 +58,12 @@ int GameTask::Update(void)
 	return scene_id;
 }
 
+/*VECTOR GameTask::GetScreen(void)
+{
+	screen = { SCREEN_SIZE_X , SCREEN_SIZE_Y, 0 };
+	return screen;
+}
+*/
 int GameTask::System(void)
 {
 	// ¼½ÃÑˆ—
@@ -68,12 +74,13 @@ int GameTask::System(void)
 	SetDrawScreen(DX_SCREEN_BACK);		// ‚Ð‚Æ‚Ü‚¸ÊÞ¯¸ÊÞ¯Ì§‚É•`‰æ
 	Scene = &GameTask::Title;
 	Initialize();
+	screen = { SCREEN_SIZE_X, SCREEN_SIZE_Y, 0};
 	return true;
 }
 
 int GameTask::Title(void)
 {
-	title->Update(controlButton);
+	title->Update(controlButton, screen);
 	if (title->GetScene() == Scene::Game)
 	{
  		Scene = &GameTask::Game;
@@ -89,7 +96,7 @@ int GameTask::Title(void)
 
 int GameTask::Game(void)
 {
-	game->Update(controlButton);
+	game->Update(controlButton, screen);
 	if (game->GetScene() == Scene::Result)
 	{
 		Scene = &GameTask::Result;
@@ -105,7 +112,7 @@ int GameTask::Game(void)
 
 int GameTask::Result(void)
 {
-	result->Update(controlButton);
+	result->Update(controlButton, screen);
 	if (result->GetScene() == Scene::Title)
 	{
 		Scene = &GameTask::Title;

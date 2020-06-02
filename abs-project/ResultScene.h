@@ -8,7 +8,7 @@ class ResultScene :
 public:
 	ResultScene();
 	~ResultScene();
-	void Update(Button button);
+	void Update(Button button, VECTOR screen);
 	void TransltionScene(Scene scene);
 	void Draw(void);
 	Scene GetScene(void) { return scene; };

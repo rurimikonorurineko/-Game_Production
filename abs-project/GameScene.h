@@ -2,6 +2,7 @@
 #include "memory"
 #include "BaseScene.h"
 #include "GameTask.h"
+#include "Player.h"
 #include "Sprite.h"
 #include "Timer.h"
 
@@ -14,12 +15,16 @@ public:
 	GameScene();
 	~GameScene();
 	void Initialize(void);
-	void Update(Button button);
+	void Update(Button button, VECTOR screen);
 	void TransltionScene(void);
 	void Draw(void);
 	Scene GetScene(void) { return scene; };
 private:
 	Sprite bcGround[BC_SHEETS_NUMBER];
+
+	VECTOR screen;
+
 	std::unique_ptr<Timer> timer;
+	std::unique_ptr<Player> player;
 };
 

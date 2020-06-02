@@ -14,7 +14,7 @@ ResultScene::~ResultScene()
 {
 }
 
-void ResultScene::Update(Button button)
+void ResultScene::Update(Button button, VECTOR screen)
 {
 	if (button.nowButton.Up_Chair == true)
 	{
