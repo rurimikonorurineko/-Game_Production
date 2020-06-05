@@ -23,7 +23,7 @@ private:
 	Sprite bcGround[BC_SHEETS_NUMBER];
 
 	VECTOR screen;
-
+	int move;
 	std::unique_ptr<Timer> timer;
 	std::unique_ptr<Player> player;
 };

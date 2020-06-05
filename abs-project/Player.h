@@ -16,7 +16,8 @@ public:
 	//椅子の高さ調整
 	int AdjustChair(void);
 	//当たり判定
-	bool CheckHit(VECTOR pos, std::string comparer);
+	bool CheckHit(Sprite compSP, std::string comparer);
+	bool CheckHitGrand(void);
 	//上司の攻撃に当たっで日和る
 	int BescaredBossAttack(void);
 	//アイテムを取得
@@ -25,7 +26,9 @@ private:
 	//プレイヤーのスプライト
 	Sprite player;
 	//ジャンプフラウグ
-	jumpFlag;
+	bool jumpFlag;
+	int jumpCount;
+	float freeFall;
 	//スクリーンのサイズ格納
 	VECTOR screen;
 };
