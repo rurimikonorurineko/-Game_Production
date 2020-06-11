@@ -39,6 +39,7 @@ void GameScene::Initialize(void)
 	}
 	timer = std::make_unique<Timer>();
 	player = std::make_unique<Player>();
+	boss = std::make_unique<Boss>();
 	move = 0;
 }
 
@@ -47,6 +48,7 @@ void GameScene::Update(Button button, VECTOR screen)
 	this->screen = screen;
 	timer->Update();
 	player->Update(button, screen);
+	boss->Update(button, screen);
 	scene = Scene::None;
 	//if (button.nowButton.Space == true && button.oldButton.Space == false)
 	{
@@ -100,4 +102,5 @@ void GameScene::Draw(void)
 	}
 	timer->DrawTimer();
 	player->Draw();
+	boss->Draw();
 }

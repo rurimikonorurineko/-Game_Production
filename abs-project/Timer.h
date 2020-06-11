@@ -15,7 +15,7 @@ public:
 	void Update(void);
 	void ConventTimer(int fleamCount);
 	void DrawTimer(void);
-	TIMER GetTimer(void) { return timer; };
+	bool CheckChangeTime(TIMER changeTime);
 private:
 	TIMER timer;
 	int fleamCount;

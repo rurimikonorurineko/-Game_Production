@@ -3,6 +3,7 @@
 #include "BaseScene.h"
 #include "GameTask.h"
 #include "Player.h"
+#include "Boss.h"
 #include "Sprite.h"
 #include "Timer.h"
 
@@ -26,5 +27,6 @@ private:
 	int move;
 	std::unique_ptr<Timer> timer;
 	std::unique_ptr<Player> player;
+	std::unique_ptr<Boss> boss;
 };
 

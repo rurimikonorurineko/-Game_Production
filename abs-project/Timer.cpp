@@ -8,8 +8,9 @@ Timer::Timer()
 	//‰Šú‰»
 	fleamCount = 0;
 	timer.second = 0;
-	timer.minute = 45;
-	timer.hour = 12;
+	timer.minute = 12;
+	timer.hour = 13;
+	fleamCount = 0;
 }
 
 
@@ -42,6 +43,17 @@ void Timer::ConventTimer(int fleamCount)
 		timer.hour++;
 		timer.minute = 0;
 	}
+}
+
+bool Timer::CheckChangeTime(TIMER changeTime)
+{
+	if (timer.hour == changeTime.hour
+		&&  timer.minute == changeTime.minute
+		&&  timer.second == changeTime.second)
+	{
+		return true;
+	}
+	return false;
 }
 
 void Timer::DrawTimer(void)

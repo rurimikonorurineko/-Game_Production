@@ -23,7 +23,7 @@ Player::~Player()
 void Player::Initialize(void)
 {
 	player.Graph = ImageMng::GetInstance().GetID("image/player.png")[0];
-	GetGraphSize(player.Graph, &player.H, &player.W);
+	GetGraphSize(player.Graph, &player.W, &player.H);
 	//マジックナンバーあとで何とかする
 	//1316(スクリーンの横幅)
 	//593(スクリーンの縦幅)
