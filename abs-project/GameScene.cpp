@@ -37,7 +37,8 @@ void GameScene::Initialize(void)
 			bcGround[i].pos.x += bcGround[i].W;
 		}
 	}
-	timer = std::make_unique<Timer>();
+	VECTOR s = { 1316,593 };
+	timer = std::make_unique<Timer>(s);
 	player = std::make_unique<Player>();
 	boss = std::make_unique<Boss>();
 	move = 0;
@@ -46,7 +47,7 @@ void GameScene::Initialize(void)
 void GameScene::Update(Button button, VECTOR screen)
 {
 	this->screen = screen;
-	timer->Update();
+ 	timer->Update();
 	player->Update(button, screen);
 	boss->Update(button, screen);
 	scene = Scene::None;

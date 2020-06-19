@@ -33,9 +33,9 @@ void Boss::Initialize(void)
 		boss[i].pos.z = 0;
 
 		int time[3][TYPE_MAX-1] = {{0,0,0 }, {15,30,45}, {13,13,13}};
-		changeTimes[i].second = time[0][i];
-		changeTimes[i].minute = time[1][i];
-		changeTimes[i].hour	  = time[2][i];
+		changeTimes[i].second.actual = time[0][i];
+		changeTimes[i].minute.actual = time[1][i];
+		changeTimes[i].hour.actual = time[2][i];
 	}
 	bossType = BOSS_TYPE::HUMAN;
 	timer = std::make_unique<Timer>();
