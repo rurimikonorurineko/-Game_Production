@@ -101,7 +101,7 @@ void GameScene::Draw(void)
 			   , screen.x, first + (hline * i) +2
 			   , GetColor(200, 200, 200), true);
 	}
-	timer->DrawTimer();
 	player->Draw();
 	boss->Draw();
+	timer->DrawTimer();
 }

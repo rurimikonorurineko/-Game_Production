@@ -14,11 +14,17 @@ Timer::Timer(VECTOR screen)
 	//‰Šú‰»
 	fleamCount = 0;
 	timer.second.actual = 0;
-	timer.minute.actual = 12;
+	timer.minute.actual = 13;
 	timer.hour.actual = 13;
+	//•bj‚Ì‰Šú‰»
 	timer.second.Graph = ImageMng::GetInstance().GetID("image/second-hand.png")[0];
+	GetGraphSize(timer.second.Graph, &timer.second.W, &timer.second.H);
+	//•ªj‚Ì‰Šú‰»
 	timer.minute.Graph = ImageMng::GetInstance().GetID("image/minute-hand.png")[0];
+	GetGraphSize(timer.minute.Graph, &timer.minute.W, &timer.minute.H);
+	//Žžj‚Ì‰Šú‰»
 	timer.hour.Graph = ImageMng::GetInstance().GetID("image/hour-hand.png")[0];
+	GetGraphSize(timer.hour.Graph, &timer.hour.W, &timer.hour.H);
 	this->screen = screen;
 	clock.Graph = ImageMng::GetInstance().GetID("image/clock-dial.png")[0];
 	GetGraphSize(clock.Graph,&clock.W,&clock.H);
@@ -70,14 +76,15 @@ bool Timer::CheckChangeTime(TIMER changeTime)
 
 void Timer::DrawTimer(void)
 {
-	DrawFormatString(650, 10, GetColor(0,0,0), "%d:%d:%d", timer.hour.actual, timer.minute.actual, timer.second.actual);
+	DrawFormatString(650, 300, GetColor(0,0,0), "%d:%d:%d", timer.hour.actual, timer.minute.actual, timer.second.actual);
 	DrawExtendGraph(clock.pos.x, clock.pos.y,
 					clock.pos.x + clock.W /1.5, 
 					clock.pos.y + clock.H /1.5,clock.Graph, true);
-	
+
+
 	//DrawRotaGraph2(,,ImageMng::GetInstance().GetID[0],true);
-	/*
-	DrawRotaGraph2(, , ImageMng::GetInstance().GetID[0], true);
-	DrawRotaGraph2(, , ImageMng::GetInstance().GetID[0], true);
-	*/
+	//DrawRotaGraph2(, , ImageMng::GetInstance().GetID[0], true);
+	DrawRotaGraph2(100,100
+				 , timer.second.W - timer.second.W /2, timer.second.H - timer.second.H /10
+				 , 0, 0, timer.second.Graph, false);
 }

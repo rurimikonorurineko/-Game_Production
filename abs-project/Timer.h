@@ -5,6 +5,7 @@ struct TIME_ELEMENT
 {
 	int actual;
 	int Graph;
+	int W, H;
 };
 struct TIMER
 {
