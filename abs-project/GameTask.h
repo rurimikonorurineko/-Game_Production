@@ -5,27 +5,28 @@
 class TitleScene;
 class GameScene;
 class ResultScene;
+class Timer;
 
 struct ControlButton
 {
-	bool Space;
-	bool Up_Chair;
-	bool Down_Chair;
+	bool Space;			//スペース
+	bool Up_Chair;		//椅子を上げる
+	bool Down_Chair;	//椅子を下げる
 };
 
 struct Button
 {
-	ControlButton nowButton;
-	ControlButton oldButton;
+	ControlButton nowButton;	//今のボタン
+	ControlButton oldButton;	//一つ前のボタン
 };
 
 
 class GameTask
 {
 public:
-	static void Create(void);
-	static void Destroy(void);
-	static GameTask &GetInstance(void)
+	static void Create(void);			//クリエイト
+	static void Destroy(void);			//デストロイ
+	static GameTask &GetInstance(void)	//インスタンス
 	{
 		Create();
 		return *s_Instance;
@@ -33,28 +34,28 @@ public:
 	void Initialize(void);
 	void Run(void);
 	int Update(void);
-	//VECTOR GetScreen(void);
 private:
 	GameTask();
 	~GameTask();
-	//システム
-	int System(void);
+	int System(void);					//システム
 	//シーンズ
+	int TitleInit(void);
 	int Title(void);
+	int GameInit(void);
 	int Game(void);
+	int ResultInit(void);
 	int Result(void);
-	void UpdateButton(void);
-	//ゲーム遷移
-	int (GameTask::*Scene)(void);
-	//コントローラ
-	Button controlButton;
+
+	void UpdateButton(void);		//ボタンの更新
+	int (GameTask::*Scene)(void);	//ゲーム遷移
+	Button controlButton;			//コントローラ
 
 	// シーンのスマートポインタ
 	std::unique_ptr<TitleScene> title;
 	std::unique_ptr<GameScene> game;
 	std::unique_ptr<ResultScene> result;
-
-	VECTOR screen;
-	static GameTask *s_Instance;
+	std::unique_ptr<Timer> timer;
+	VECTOR screen;					//画面サイズ
+	static GameTask *s_Instance;	//インスタンスポインタ
 };
 

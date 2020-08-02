@@ -6,6 +6,10 @@ BaseScene::BaseScene()
 {
 }
 
+BaseScene::BaseScene(VECTOR screen)
+{
+}
+
 
 BaseScene::~BaseScene()
 {

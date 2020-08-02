@@ -139,6 +139,10 @@
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="TypePierce.cpp" />
+    <ClCompile Include="TypeShockwave.cpp" />
+    <ClCompile Include="TypeShot.cpp" />
+    <ClCompile Include="TypeSlash.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Attack.h" />
@@ -155,6 +159,10 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TitleScene.h" />
+    <ClInclude Include="TypePierce.h" />
+    <ClInclude Include="TypeShockwave.h" />
+    <ClInclude Include="TypeShot.h" />
+    <ClInclude Include="TypeSlash.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

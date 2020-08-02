@@ -19,6 +19,12 @@
     <Filter Include="ヘッダー ファイル\Scene">
       <UniqueIdentifier>{d2711ee2-c690-4fab-a352-c313b7a18753}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Attack">
+      <UniqueIdentifier>{cca81b3f-d7d3-43b3-afd4-471271cf0fac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Attack">
+      <UniqueIdentifier>{4dbd7dab-fa4a-42e6-bb60-ecef829c421b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -37,9 +43,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Attack.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Barrier.cpp">
@@ -63,6 +66,21 @@
     <ClCompile Include="TitleScene.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Attack.cpp">
+      <Filter>ソース ファイル\Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeShot.cpp">
+      <Filter>ソース ファイル\Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="TypePierce.cpp">
+      <Filter>ソース ファイル\Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeShockwave.cpp">
+      <Filter>ソース ファイル\Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeSlash.cpp">
+      <Filter>ソース ファイル\Attack</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameTask.h">
@@ -81,9 +99,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Item.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Attack.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Barrier.h">
@@ -106,6 +121,21 @@
     </ClInclude>
     <ClInclude Include="TitleScene.h">
       <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Attack.h">
+      <Filter>ヘッダー ファイル\Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeShot.h">
+      <Filter>ヘッダー ファイル\Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="TypePierce.h">
+      <Filter>ヘッダー ファイル\Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeShockwave.h">
+      <Filter>ヘッダー ファイル\Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeSlash.h">
+      <Filter>ヘッダー ファイル\Attack</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,14 +3,20 @@
 #include "ImageMng.h"
 #include "Timer.h"
 
-#define SPLIT_X 16
-#define SPLIT_Y 5
+#define SPLIT_X 16	//地面ラインのX方向分割数
+#define SPLIT_Y 5	//地面ラインのY方向分割数
 
-#define SCROLL_ROTATIONS_NUMBER 2
-#define GROUND_SIZE_PERCENTT 8/*分割*/
+#define SCROLL_ROTATIONS_NUMBER 2	//背景の1フレームの移動数
+#define GROUND_SIZE_PERCENTT 8		//分割
 
 GameScene::GameScene()
 {
+	
+}
+
+GameScene::GameScene(VECTOR screen)
+{
+	this->screen = screen;
 	for (int i = 0; i < BC_SHEETS_NUMBER; i++)
 	{
 		bcGround[i].pos = { 0,0,0 };
@@ -25,11 +31,12 @@ GameScene::GameScene()
 GameScene::~GameScene()
 {
 }
-
+//イニシャライズ
 void GameScene::Initialize(void)
 {
 	for (int i = 0; i < BC_SHEETS_NUMBER; i++)
 	{
+		//背景の画像のセットと画像サイズの取得
 		bcGround[i].Graph = ImageMng::GetInstance().GetID("image/bcGround.png")[0];
 		GetGraphSize(bcGround[i].Graph, &bcGround[i].W, &bcGround[i].H);
 		if (i == BC_SHEETS_NUMBER - 1)
@@ -37,24 +44,23 @@ void GameScene::Initialize(void)
 			bcGround[i].pos.x += bcGround[i].W;
 		}
 	}
-	VECTOR s = { 1316,593 };
-	timer = std::make_unique<Timer>(s);
-	player = std::make_unique<Player>();
-	boss = std::make_unique<Boss>();
+	player = std::make_unique<Player>(screen);
+	boss = std::make_unique<Boss>(screen);
 	move = 0;
 }
-
-void GameScene::Update(Button button, VECTOR screen)
+//更新
+void GameScene::Update(Button button, std::unique_ptr<Timer>& timer)
 {
-	this->screen = screen;
  	timer->Update();
-	player->Update(button, screen);
-	boss->Update(button, screen);
+	player->Update(button);
+	boss->Update(button, player, timer);
 	scene = Scene::None;
-	//if (button.nowButton.Space == true && button.oldButton.Space == false)
+	//ボスに当たっていたらリザルトシーンをセットする関数に飛ぶ
+	if (player->GetHitBoss())
 	{
-		//TransltionScene();
+		TransltionScene();
 	}
+	//背景が左端まで来たら右端に移す
 	for (int i = 0; i < BC_SHEETS_NUMBER; i++)
 	{
 		bcGround[i].pos.x -= SCROLL_ROTATIONS_NUMBER;
@@ -64,14 +70,15 @@ void GameScene::Update(Button button, VECTOR screen)
 		}
 	}
 }
-
+//リザルトシーンをセットする
 void GameScene::TransltionScene(void)
 {
  	scene = Scene::Result;
 }
-
+//描画
 void GameScene::Draw(void)
 {
+	//背景の描画
 	for (int i = 0; i < BC_SHEETS_NUMBER; i++)
 	{
 		DrawGraph(bcGround[i].pos.x, bcGround[i].pos.y, bcGround[i].Graph, false);
@@ -103,5 +110,4 @@ void GameScene::Draw(void)
 	}
 	player->Draw();
 	boss->Draw();
-	timer->DrawTimer();
 }

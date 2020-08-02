@@ -1,6 +1,7 @@
 #pragma once
 #include "DxLib.h"
 #include "GameTask.h"
+#include "Timer.h"
 enum Scene
 {
 	None,
@@ -13,9 +14,10 @@ class BaseScene
 {
 public:
 	BaseScene();
+	BaseScene(VECTOR screen);
 	virtual ~BaseScene();
 	virtual void Initialize(void);
-	virtual void Update(Button button, VECTOR screen) = 0;
+	virtual void Update(Button button, std::unique_ptr<Timer>& timer) = 0;
 	virtual void TransltionScene(void);
 	virtual void Draw(void);
 protected:
